@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "True Dark Mode",
+  "version": "1.0.1",
+  "description": "Dark mode that actually works - for Google Docs, Sheets, and all websites",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://docs.google.com/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "options_page": "options/options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/document/*"],
+      "css": ["content-scripts/google-docs.css"],
+      "js": ["content-scripts/google-docs.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://docs.google.com/spreadsheets/*"],
+      "css": ["content-scripts/google-sheets.css"],
+      "js": ["content-scripts/google-sheets.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

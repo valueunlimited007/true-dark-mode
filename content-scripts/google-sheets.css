@@ -1,0 +1,96 @@
+/* True Dark Mode - Google Sheets (Soft Dark Theme) */
+
+/* ===== FULL PAGE INVERSION ===== */
+/* brightness(0.9) tones down the harsh white text */
+html.true-dark-mode {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) !important;
+  background: #fff !important;
+}
+
+/* Re-invert images so they look normal */
+html.true-dark-mode img,
+html.true-dark-mode video,
+html.true-dark-mode picture,
+html.true-dark-mode [style*="background-image"] {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* ===== ROW/COLUMN HEADERS - Make them darker gray ===== */
+/* These become too white after inversion, so we darken them */
+html.true-dark-mode .row-header-wrapper,
+html.true-dark-mode .column-headers-container,
+html.true-dark-mode .row-headers-background,
+html.true-dark-mode .column-headers-background,
+html.true-dark-mode .freezebar-cell,
+html.true-dark-mode .grid-table-frozen-headers {
+  filter: brightness(0.7) !important;
+}
+
+/* ===== FORMULA BAR - Darker ===== */
+html.true-dark-mode #formula-bar-input-container,
+html.true-dark-mode .cell-input,
+html.true-dark-mode .waffle-name-box {
+  filter: brightness(0.75) !important;
+}
+
+/* ===== TOOLBAR - Tone down brightness ===== */
+html.true-dark-mode #docs-chrome,
+html.true-dark-mode .docs-titlebar-container,
+html.true-dark-mode .docs-menubar,
+html.true-dark-mode .docs-toolbar-wrapper {
+  filter: brightness(0.85) !important;
+}
+
+/* ===== SHEET TABS - Darker with better text ===== */
+html.true-dark-mode .docs-sheet-tab-bar,
+html.true-dark-mode .docs-sheet-tab-container {
+  filter: brightness(0.6) contrast(1.2) !important;
+}
+
+html.true-dark-mode .docs-sheet-tab {
+  filter: brightness(0.7) !important;
+}
+
+html.true-dark-mode .docs-sheet-active-tab,
+html.true-dark-mode .docs-sheet-tab-selected {
+  filter: brightness(0.8) !important;
+}
+
+/* ===== RIGHT SIDEBAR - Darker ===== */
+html.true-dark-mode .docs-companion-sidebar,
+html.true-dark-mode .companion-app-container,
+html.true-dark-mode .docs-companion-app-chrome {
+  filter: brightness(0.7) !important;
+}
+
+/* ===== MENUS AND DROPDOWNS - Darker ===== */
+html.true-dark-mode .goog-menu,
+html.true-dark-mode .docs-material-menu-content,
+html.true-dark-mode .apps-menu-hide-mnemonics,
+html.true-dark-mode .goog-menuitem {
+  filter: brightness(0.75) !important;
+}
+
+/* ===== SCROLLBAR - Custom dark styling ===== */
+html.true-dark-mode ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a1a !important;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-thumb {
+  background: #4a4a4a !important;
+  border-radius: 6px;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a !important;
+}
+
+/* ===== GRID LINES - Softer ===== */
+html.true-dark-mode .grid-table-container {
+  filter: brightness(0.95) !important;
+}

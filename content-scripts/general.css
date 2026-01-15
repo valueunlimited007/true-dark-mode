@@ -1,0 +1,68 @@
+/* True Dark Mode - General CSS (injected dynamically) */
+
+/* This file is kept for reference, actual styles are injected via JS */
+
+html.true-dark-mode {
+  filter: invert(100%) hue-rotate(180deg) !important;
+  background-color: #fff !important;
+}
+
+/* Re-invert images and media to show them correctly */
+html.true-dark-mode img,
+html.true-dark-mode video,
+html.true-dark-mode iframe:not([src*="youtube"]):not([src*="vimeo"]),
+html.true-dark-mode canvas,
+html.true-dark-mode svg image,
+html.true-dark-mode picture,
+html.true-dark-mode [style*="background-image"],
+html.true-dark-mode .image,
+html.true-dark-mode [class*="image"],
+html.true-dark-mode [class*="img"],
+html.true-dark-mode [class*="photo"],
+html.true-dark-mode [class*="thumb"],
+html.true-dark-mode [class*="avatar"],
+html.true-dark-mode [class*="logo"],
+html.true-dark-mode [class*="icon"]:not([class*="icon-"]) {
+  filter: invert(100%) hue-rotate(180deg) !important;
+}
+
+/* Preserve video embeds */
+html.true-dark-mode iframe[src*="youtube"],
+html.true-dark-mode iframe[src*="vimeo"],
+html.true-dark-mode iframe[src*="player"] {
+  filter: invert(100%) hue-rotate(180deg) !important;
+}
+
+/* Scrollbar styling */
+html.true-dark-mode ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 5px;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Fix common issues */
+html.true-dark-mode input,
+html.true-dark-mode textarea,
+html.true-dark-mode select {
+  color-scheme: dark;
+}
+
+/* Preserve already dark elements */
+html.true-dark-mode [style*="background-color: rgb(0, 0, 0)"],
+html.true-dark-mode [style*="background-color: #000"],
+html.true-dark-mode [style*="background: rgb(0, 0, 0)"],
+html.true-dark-mode [style*="background: #000"] {
+  filter: invert(100%) hue-rotate(180deg) !important;
+}

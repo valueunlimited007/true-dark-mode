@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>True Dark Mode - Icon Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #fff;
+    }
+    h1 { text-align: center; }
+    .icon-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+    }
+    .icon-box {
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #333;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { opacity: 0.9; }
+    .instructions {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>True Dark Mode - Icon Generator</h1>
+
+  <div class="icon-container">
+    <div class="icon-box">
+      <canvas id="icon16" width="16" height="16"></canvas>
+      <br>
+      <button onclick="download('icon16', 16)">Download 16x16</button>
+    </div>
+    <div class="icon-box">
+      <canvas id="icon48" width="48" height="48"></canvas>
+      <br>
+      <button onclick="download('icon48', 48)">Download 48x48</button>
+    </div>
+    <div class="icon-box">
+      <canvas id="icon128" width="128" height="128"></canvas>
+      <br>
+      <button onclick="download('icon128', 128)">Download 128x128</button>
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <button onclick="downloadAll()" style="padding: 15px 30px; font-size: 16px;">Download All Icons</button>
+  </div>
+
+  <div class="instructions">
+    <h3>Instructions:</h3>
+    <ol>
+      <li>Click "Download All Icons" or download each icon individually</li>
+      <li>Save them to the <code>icons</code> folder in your extension directory</li>
+      <li>Name them: icon16.png, icon48.png, icon128.png</li>
+      <li>Reload the extension in Chrome</li>
+    </ol>
+  </div>
+
+  <script>
+    // Draw the moon icon
+    function drawIcon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+
+      // Create gradient
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#667eea');
+      gradient.addColorStop(1, '#764ba2');
+
+      // Draw background circle
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size/2 - 1, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Draw moon shape (white crescent)
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      const moonX = size * 0.5;
+      const moonY = size * 0.5;
+      const moonR = size * 0.35;
+      const cutoutX = size * 0.65;
+      const cutoutR = size * 0.3;
+
+      ctx.arc(moonX, moonY, moonR, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Cut out the crescent
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(cutoutX, moonY, cutoutR, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    // Download single icon
+    function download(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = `icon${size}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    // Download all icons
+    function downloadAll() {
+      download('icon16', 16);
+      setTimeout(() => download('icon48', 48), 200);
+      setTimeout(() => download('icon128', 128), 400);
+    }
+
+    // Draw all icons on load
+    drawIcon('icon16', 16);
+    drawIcon('icon48', 48);
+    drawIcon('icon128', 128);
+  </script>
+</body>
+</html>

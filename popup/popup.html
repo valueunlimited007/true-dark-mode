@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True Dark Mode</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <span class="moon-icon">&#127769;</span>
+        <h1>True Dark Mode</h1>
+      </div>
+      <div class="toggle-container">
+        <button id="toggleOff" class="toggle-btn">Off</button>
+        <button id="toggleOn" class="toggle-btn active">On</button>
+      </div>
+    </header>
+
+    <!-- Status banner for skipped sites -->
+    <div id="statusBanner" class="status-banner hidden">
+      <span class="status-icon">&#10003;</span>
+      <span id="statusText">This site is skipped</span>
+    </div>
+
+    <section class="sliders">
+      <div class="slider-group">
+        <label for="brightness">Brightness</label>
+        <div class="slider-wrapper">
+          <button class="slider-btn minus" data-target="brightness">&#8249;</button>
+          <input type="range" id="brightness" min="50" max="150" value="100">
+          <button class="slider-btn plus" data-target="brightness">&#8250;</button>
+        </div>
+        <span class="slider-value" id="brightness-value">100%</span>
+      </div>
+
+      <div class="slider-group">
+        <label for="contrast">Contrast</label>
+        <div class="slider-wrapper">
+          <button class="slider-btn minus" data-target="contrast">&#8249;</button>
+          <input type="range" id="contrast" min="50" max="150" value="100">
+          <button class="slider-btn plus" data-target="contrast">&#8250;</button>
+        </div>
+        <span class="slider-value" id="contrast-value">100%</span>
+      </div>
+
+      <div class="slider-group">
+        <label for="sepia">Sepia</label>
+        <div class="slider-wrapper">
+          <button class="slider-btn minus" data-target="sepia">&#8249;</button>
+          <input type="range" id="sepia" min="0" max="100" value="0">
+          <button class="slider-btn plus" data-target="sepia">&#8250;</button>
+        </div>
+        <span class="slider-value" id="sepia-value">0%</span>
+      </div>
+
+      <div class="slider-group">
+        <label for="grayscale">Grayscale</label>
+        <div class="slider-wrapper">
+          <button class="slider-btn minus" data-target="grayscale">&#8249;</button>
+          <input type="range" id="grayscale" min="0" max="100" value="0">
+          <button class="slider-btn plus" data-target="grayscale">&#8250;</button>
+        </div>
+        <span class="slider-value" id="grayscale-value">0%</span>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="disableSite" class="action-btn">
+        <span class="btn-icon">&#128683;</span>
+        <span id="disableSiteText">Skip this site</span>
+      </button>
+      <p class="action-hint" id="disableHint">Site has its own dark mode? Skip it.</p>
+    </section>
+
+    <section class="report-section">
+      <button id="reportIssue" class="report-btn">
+        <span class="btn-icon">&#128172;</span>
+        <span>Report issue with this site</span>
+      </button>
+    </section>
+
+    <footer class="footer">
+      <a href="#" id="openSettings" class="settings-link">
+        <span class="settings-icon">&#9881;</span>
+        Settings
+      </a>
+      <span class="version">v1.0.1</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True Dark Mode - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>True Dark Mode Settings</h1>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>Whitelist</h2>
+        <p class="description">Sites in the whitelist will not have dark mode applied.</p>
+
+        <div class="input-group">
+          <input type="text" id="whitelistInput" placeholder="https://example.com">
+          <button id="addWhitelist" class="btn primary">Add</button>
+        </div>
+
+        <div class="list" id="whitelistItems">
+          <!-- Whitelist items will be added here -->
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Disabled Sites</h2>
+        <p class="description">Sites you've disabled from the popup. Click to re-enable.</p>
+
+        <div class="list" id="disabledSitesItems">
+          <!-- Disabled sites will be added here -->
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Module Settings</h2>
+        <p class="description">Enable or disable dark mode for specific sites.</p>
+
+        <div class="toggle-group">
+          <label class="toggle-label">
+            <span>Google Docs</span>
+            <input type="checkbox" id="googleDocsToggle" checked>
+            <span class="toggle-switch"></span>
+          </label>
+        </div>
+
+        <div class="toggle-group">
+          <label class="toggle-label">
+            <span>Google Sheets</span>
+            <input type="checkbox" id="googleSheetsToggle" checked>
+            <span class="toggle-switch"></span>
+          </label>
+        </div>
+
+        <div class="toggle-group">
+          <label class="toggle-label">
+            <span>General Websites</span>
+            <input type="checkbox" id="generalModeToggle" checked>
+            <span class="toggle-switch"></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Reset Settings</h2>
+        <p class="description">Reset all settings to their defaults.</p>
+        <button id="resetSettings" class="btn danger">Reset All Settings</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>True Dark Mode v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

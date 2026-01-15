@@ -1,0 +1,89 @@
+/* True Dark Mode - Google Docs (Soft Dark Theme) */
+
+/* ===== FULL PAGE INVERSION ===== */
+/* Same approach as Sheets - works better for consistency */
+/* brightness(0.9) tones down the harsh white text */
+html.true-dark-mode {
+  filter: invert(1) hue-rotate(180deg) brightness(0.9) !important;
+  background: #fff !important;
+}
+
+/* Re-invert images so they look normal */
+html.true-dark-mode img,
+html.true-dark-mode video,
+html.true-dark-mode picture,
+html.true-dark-mode [style*="background-image"] {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* ===== TOOLBAR - Tone down brightness ===== */
+html.true-dark-mode #docs-chrome,
+html.true-dark-mode .docs-titlebar-container,
+html.true-dark-mode .docs-menubar,
+html.true-dark-mode .docs-toolbar-wrapper {
+  filter: brightness(0.85) !important;
+}
+
+/* ===== RULER - Darker ===== */
+html.true-dark-mode .kix-ruler-container,
+html.true-dark-mode .kix-ruler,
+html.true-dark-mode .kix-vertical-ruler-container,
+html.true-dark-mode .docs-vertical-ruler {
+  filter: brightness(0.7) !important;
+}
+
+/* ===== LINE NUMBERS (left margin) - Darker ===== */
+html.true-dark-mode .kix-lineview-decorations,
+html.true-dark-mode .kix-lineview-line-number,
+html.true-dark-mode .line-numbers-content-td {
+  filter: brightness(0.7) !important;
+}
+
+/* ===== SIDE PANELS - Darker ===== */
+html.true-dark-mode .docs-explore-sidebar,
+html.true-dark-mode .docs-companion-sidebar,
+html.true-dark-mode .companion-app-chrome,
+html.true-dark-mode .docs-companion-app-chrome,
+html.true-dark-mode .navigation-widget-content {
+  filter: brightness(0.7) !important;
+}
+
+/* ===== MENUS AND DROPDOWNS - Darker ===== */
+html.true-dark-mode .goog-menu,
+html.true-dark-mode .docs-material-menu-content,
+html.true-dark-mode .apps-menu-hide-mnemonics,
+html.true-dark-mode .goog-menuitem {
+  filter: brightness(0.75) !important;
+}
+
+/* ===== DIALOGS ===== */
+html.true-dark-mode .modal-dialog,
+html.true-dark-mode .modal-dialog-content,
+html.true-dark-mode .docs-dialog {
+  filter: brightness(0.8) !important;
+}
+
+/* ===== SCROLLBARS ===== */
+html.true-dark-mode ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a1a !important;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-thumb {
+  background: #4a4a4a !important;
+  border-radius: 5px;
+}
+
+html.true-dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a !important;
+}
+
+/* ===== OUTLINE/NAVIGATION BUTTON (left side icon) ===== */
+html.true-dark-mode .navigation-widget-hat-button,
+html.true-dark-mode .docs-hat-button {
+  filter: brightness(0.8) !important;
+}
