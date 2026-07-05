@@ -1,2 +1,9 @@
 # Documentation files (private)
 *.md
+
+# Byggartefakter och beroenden
+node_modules/
+dist/
+firefox-build/
+*.zip
+nul
